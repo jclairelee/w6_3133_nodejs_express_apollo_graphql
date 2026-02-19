@@ -1,4 +1,4 @@
-import { gql } from "graphql-tag";
+import gql from "graphql-tag";
 
 const movieSchema = gql`
   type Movie {
@@ -7,7 +7,9 @@ const movieSchema = gql`
     director_name: String!
     production_house: String!
     release_date: String!
-    rating: Int!
+    rating: Float!
+    movie_age: Int
+    movieSummary: String
   }
 
   type Query {
@@ -22,7 +24,7 @@ const movieSchema = gql`
       director_name: String!
       production_house: String!
       release_date: String!
-      rating: Int!
+      rating: Float!
     ): Movie
 
     updateMovie(
@@ -31,7 +33,7 @@ const movieSchema = gql`
       director_name: String
       production_house: String
       release_date: String
-      rating: Int
+      rating: Float
     ): Movie
 
     deleteMovie(id: ID!): String
